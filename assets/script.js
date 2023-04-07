@@ -32,8 +32,7 @@ let slideIndex = 0;
 //Affichage des points
 function dotsDisplay() {
   for (let element of slides) {
-    let dotsAreaTemp = dotsArea.innerHTML;
-    dotsArea.innerHTML = dotsAreaTemp + dot;
+    dotsArea.innerHTML += dot;
   }
   dotList = document.getElementsByClassName("dot");
   dotList[slideIndex].setAttribute("class", "dot dot_selected");
@@ -54,7 +53,7 @@ arrowRight.addEventListener("click", function () {
 });
 //Selection du Slide
 function nextSlide() {
-  if (slideIndex < 3) {
+  if (slideIndex < slides.length - 1) {
     slideIndex++;
     slideUpdate();
   } else {
@@ -71,7 +70,7 @@ function previousSlide() {
     slideUpdate();
   }
 }
-//Affichage du Slide
+//Mise à Jour du Slide
 function slideUpdate() {
   activeSlideImg.setAttribute(
     "src",
